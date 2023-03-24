@@ -8,4 +8,5 @@ export const currentUser = writable((await supabase.auth.getUser()).data.user);
 
 supabase.auth.onAuthStateChange(async () => {
     currentUser.set((await supabase.auth.getUser()).data.user);
+    console.log("Auth state changed")
 });
