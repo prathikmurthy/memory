@@ -3,26 +3,27 @@
     import { supabase, currentUser } from '$lib/supabase';
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
+    import { enhance } from '$app/forms';
     
     let email = ''
     let password = ''
     let errormessage: string | null = null
 
-    const login = async (email: string, password: string) => {
-        errormessage = null
-        const {data, error} = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password,
-        })
+    // const login = async (email: string, password: string) => {
+    //     errormessage = null
+    //     const {data, error} = await supabase.auth.signInWithPassword({
+    //         email: email,
+    //         password: password,
+    //     })
 
-        if (error) {
-            errormessage = error.message
-        } else {
-            currentUser.set(data?.user)
-            console.log(data)
-            goto('/')
-        }
-    }
+    //     if (error) {
+    //         errormessage = error.message
+    //     } else {
+    //         currentUser.set(data?.user)
+    //         console.log(data)
+    //         goto('/')
+    //     }
+    // }
 
 </script>
 
@@ -58,7 +59,7 @@
     
         <p>Log in to your account</p>
     
-        <form on:submit|preventDefault={() => login(email, password)}>
+        <form method="POST" use:enhance>
                         
             {#if errormessage}
     
