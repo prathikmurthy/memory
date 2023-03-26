@@ -2,6 +2,7 @@
 
     import { supabase, currentUser } from '$lib/supabase';
     import { goto } from '$app/navigation';
+    import { enhance } from '$app/forms';
 
     let email = ''
     let password = ''
@@ -56,7 +57,7 @@
     
         <p>Create a new account</p>
     
-        <form on:submit|preventDefault={() => create(email, password)}>
+        <form method="POST" use:enhance>
                         
             {#if errormessage}
     

@@ -41,8 +41,6 @@
   }
 </style>
 
-<!-- <button on:click={() => logout()}>Logout</button> -->
-
 <!-- input field and button which calls insertRow with input field value -->
 <input type="text" placeholder="Insert Row" bind:value={insertRowValue} />
 <button on:click={() => insertRow(insertRowValue)}>Insert Row</button>
