@@ -10,17 +10,15 @@
 
     const insertRow = async (insertRowValue: string) => {
         // insert a row into the table
-        // const { data, error } = await supabase
-        //     .from('test')
-        //     .insert([
-        //         { uid: $currentUser?.id, value: parseInt(insertRowValue) },
-        //     ]);
+        const { error } = await data.supabase
+            .from('test')
+            .insert([
+                { uid: data.session.data.session?.user.id, value: parseInt(insertRowValue) },
+            ]);
 
-        // if (error) {
-        //     console.log(error);
-        // } else {
-        //     console.log(data);
-        // }
+        if (error) {
+            console.log(error); 
+        }
     }
 
     // function logout() {
