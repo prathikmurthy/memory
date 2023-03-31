@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@supabase/auth-helpers-svelte": "^0.4.6",
 		"@supabase/supabase-js": "^2.12.1",
-		"supabase": "^1.45.2"
+		"supabase": "^1.45.2",
+		"svelte-icons": "^2.1.0"
 	}
 }
